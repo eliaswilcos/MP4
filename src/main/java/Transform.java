@@ -30,6 +30,42 @@ public class Transform {
      */
     public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage,
                                                  final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        int width = originalImage[0].length;
+        int start = width / 2;
+        /**
+         * left half
+         */
+        for (int i = width / 2; i >= 0; i--) {
+            for (int j = 0; j < originalImage.length; j++) {
+                for (int k = 0; k < amount; k++) {
+                    copy[j][start - k] = originalImage[j][i];
+                }
+            }
+            start = start - amount;
+            if (start < 0) {
+                break;
+            }
+        }
+        /**
+         * right half
+         */
+        int even = 0;
+        if (width % 2 == 0) {
+            even = 1;
+        }
+        for (int i = width / 2 - even; i < width; i++) {
+            for (int j = 0; j < originalImage.length; j++) {
+                for (int k = 0; k < amount; k++) {
+                    copy[j][start + k] = originalImage[j][i];
+                }
+            }
+            start = start + amount;
+            if (start > width - 1) {
+                break;
+            }
+        }
+        return copy;
     }
     /**
      * expand vertical.
@@ -39,6 +75,42 @@ public class Transform {
      */
     public static RGBAPixel[][] expandVertical(final RGBAPixel[][] originalImage,
                                                final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        int height = originalImage.length;
+        int start = height / 2;
+        /**
+         * top half
+         */
+        for (int i = height / 2; i >= 0; i--) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                for (int k = 0; k < amount; k++) {
+                    copy[start - k][j] = originalImage[i][j];
+                }
+            }
+            start = start - amount;
+            if (start < 0) {
+                break;
+            }
+        }
+        /**
+         * bottom half
+         */
+        int even = 0;
+        if (height % 2 == 0) {
+            even = 1;
+        }
+        for (int i = height / 2 - even; i < height; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                for (int k = 0; k < amount; k++) {
+                    copy[start + k][j] = originalImage[i][j];
+                }
+            }
+            start = start + amount;
+            if (start > height - 1) {
+                break;
+            }
+        }
+        return copy;
     }
     /**
      * flip horizontal.
