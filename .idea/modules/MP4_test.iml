@@ -15,8 +15,8 @@
     <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: io.vertx:vertx-auth-common:3.4.2" level="project" />
     <orderEntry type="library" name="Gradle: io.vertx:vertx-core:3.4.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.inject:guice:no_aop:4.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: net.sourceforge.pro-grade:pro-grade:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.inject:guice:no_aop:4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.ant:ant:1.7.0" level="project" />
     <orderEntry type="library" name="Gradle: com.beust:jcommander:1.48" level="project" />
