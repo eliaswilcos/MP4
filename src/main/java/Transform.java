@@ -14,31 +14,36 @@ public class Transform {
      */
     static int DEFAULT_POSITION_SHIFT;
     /**
-     * default resize amount
+     * default resize amount.
      */
     static int DEFAULT_RESIZE_AMOUNT;
     /**
-     * default constructor
+     * default constructor.
      */
     public Transform() {
     }
     /**
-     * expand horizontal
+     * expand horizontal.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
-    public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage,
+                                                 final int amount) {
     }
     /**
-     * expand vertical
+     * expand vertical.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
-    public static RGBAPixel[][] expandVertical(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] expandVertical(final RGBAPixel[][] originalImage,
+                                               final int amount) {
     }
     /**
-     * flip horizontal
+     * flip horizontal.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
@@ -48,10 +53,12 @@ public class Transform {
                 copy[width - i - 1][j] = originalImage[i][j];
             }
         }
+        return copy;
     }
     /**
-     * flip vertical
+     * flip vertical.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] flipVertical(final RGBAPixel[][] originalImage) {
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
@@ -61,127 +68,148 @@ public class Transform {
                 copy[i][height - j - 1] = originalImage[i][j];
             }
         }
+        return copy;
     }
     /**
-     * green screen
+     * green screen.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] greenScreen(final RGBAPixel[][] originalImage) {
     }
     /**
-     * less alpha
+     * less alpha.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] lessAlpha(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * less blue
+     * less blue.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] lessBlue(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * less green
+     * less green.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] lessGreen(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * less red
+     * less red.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] lessRed(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * more alpha
+     * more alpha.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] moreAlpha(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * more blue
+     * more blue.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] moreBlue(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * more green
+     * more green.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] moreGreen(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * more red
+     * more red.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] moreRed(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * mystery
+     * mystery.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] mystery(final RGBAPixel[][] originalImage) {
     }
     /**
-     * rotate left
+     * rotate left.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] rotateLeft(final RGBAPixel[][] originalImage) {
     }
     /**
-     * rotate right
+     * rotate right.
      * @param originalImage original image
+     * @return copy
      */
     public static RGBAPixel[][] rotateRight(final RGBAPixel[][] originalImage) {
     }
     /**
-     * shift down
+     * shift down.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] shiftDown(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * shift left
+     * shift left.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * shift right
+     * shift right.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] shiftRight(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * shift up
+     * shift up.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
     }
     /**
-     * shrink horizontal
+     * shrink horizontal.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
-    public static RGBAPixel[][] shrinkHorizontal(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shrinkHorizontal(final RGBAPixel[][] originalImage,
+                                                 final int amount) {
     }
     /**
-     * shrink vertical
+     * shrink vertical.
      * @param originalImage original image
      * @param amount amount
+     * @return copy
      */
-    public static RGBAPixel[][] shrinkVertical(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shrinkVertical(final RGBAPixel[][] originalImage,
+                                               final int amount) {
     }
 }
