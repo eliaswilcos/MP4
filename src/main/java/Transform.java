@@ -169,6 +169,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] lessAlpha(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount < copy[i][j].getAlpha()) {
+                    copy[i][j].setAlpha(copy[i][j].getAlpha() - amount);
+                } else {
+                    copy[i][j].setAlpha(0);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * less blue.
@@ -177,6 +189,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] lessBlue(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount < copy[i][j].getBlue()) {
+                    copy[i][j].setBlue(copy[i][j].getBlue() - amount);
+                } else {
+                    copy[i][j].setBlue(0);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * less green.
@@ -185,6 +209,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] lessGreen(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount < copy[i][j].getGreen()) {
+                    copy[i][j].setGreen(copy[i][j].getGreen() - amount);
+                } else {
+                    copy[i][j].setGreen(0);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * less red.
@@ -193,6 +229,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] lessRed(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount < copy[i][j].getRed()) {
+                    copy[i][j].setRed(copy[i][j].getRed() - amount);
+                } else {
+                    copy[i][j].setRed(0);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * more alpha.
@@ -201,6 +249,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] moreAlpha(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount + copy[i][j].getAlpha() >= 255) {
+                    copy[i][j].setAlpha(255);
+                } else {
+                    copy[i][j].setAlpha(copy[i][j].getAlpha() + amount);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * more blue.
@@ -209,6 +269,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] moreBlue(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount + copy[i][j].getBlue() >= 255) {
+                    copy[i][j].setBlue(255);
+                } else {
+                    copy[i][j].setBlue(copy[i][j].getBlue() + amount);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * more green.
@@ -217,6 +289,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] moreGreen(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount + copy[i][j].getGreen() >= 255) {
+                    copy[i][j].setGreen(255);
+                } else {
+                    copy[i][j].setGreen(copy[i][j].getGreen() + amount);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * more red.
@@ -225,6 +309,18 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] moreRed(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = originalImage[i][j];
+                if (amount + copy[i][j].getRed() >= 255) {
+                    copy[i][j].setRed(255);
+                } else {
+                    copy[i][j].setRed(copy[i][j].getRed() + amount);
+                }
+            }
+        }
+        return copy;
     }
     /**
      * mystery.
