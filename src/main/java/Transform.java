@@ -335,6 +335,13 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] rotateLeft(final RGBAPixel[][] originalImage) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][height - j - 1] = originalImage[i][j];
+            }
+        }
+        return copy;
     }
     /**
      * rotate right.
