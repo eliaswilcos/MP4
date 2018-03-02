@@ -328,6 +328,7 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] mystery(final RGBAPixel[][] originalImage) {
+        return null;
     }
     /**
      * rotate left.
@@ -398,6 +399,7 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftDown(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
     }
     /**
      * shift left.
@@ -406,6 +408,7 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
     }
     /**
      * shift right.
@@ -414,6 +417,7 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftRight(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
     }
     /**
      * shift up.
@@ -422,6 +426,7 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
     }
     /**
      * shrink horizontal.
@@ -431,6 +436,7 @@ public class Transform {
      */
     public static RGBAPixel[][] shrinkHorizontal(final RGBAPixel[][] originalImage,
                                                  final int amount) {
+        return null;
     }
     /**
      * shrink vertical.
@@ -440,5 +446,6 @@ public class Transform {
      */
     public static RGBAPixel[][] shrinkVertical(final RGBAPixel[][] originalImage,
                                                final int amount) {
+        return null;
     }
 }
