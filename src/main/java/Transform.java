@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * Transform Class.
@@ -8,15 +6,15 @@ public class Transform {
     /**
      * default color shift.
      */
-    static int DEFAULT_COLOR_SHIFT;
+    static final int DEFAULT_COLOR_SHIFT = 1;
     /**
      * default position shift.
      */
-    static int DEFAULT_POSITION_SHIFT;
+    static final int DEFAULT_POSITION_SHIFT = 1;
     /**
      * default resize amount.
      */
-    static int DEFAULT_RESIZE_AMOUNT;
+    static final int DEFAULT_RESIZE_AMOUNT = 1;
     /**
      * default constructor.
      */
@@ -39,7 +37,7 @@ public class Transform {
         for (int i = width / 2; i >= 0; i--) {
             for (int j = 0; j < originalImage.length; j++) {
                 for (int k = 0; k < amount; k++) {
-                    copy[j][start - k] = new RGBAPixel(originalImage[i][j]);;
+                    copy[j][start - k] = new RGBAPixel(originalImage[i][j]);
                 }
             }
             start = start - amount;
@@ -57,7 +55,7 @@ public class Transform {
         for (int i = width / 2 - even; i < width; i++) {
             for (int j = 0; j < originalImage.length; j++) {
                 for (int k = 0; k < amount; k++) {
-                    copy[j][start + k] = new RGBAPixel(originalImage[i][j]);;
+                    copy[j][start + k] = new RGBAPixel(originalImage[i][j]);
                 }
             }
             start = start + amount;
@@ -84,7 +82,7 @@ public class Transform {
         for (int i = height / 2; i >= 0; i--) {
             for (int j = 0; j < originalImage[i].length; j++) {
                 for (int k = 0; k < amount; k++) {
-                    copy[start - k][j] = new RGBAPixel(originalImage[i][j]);;
+                    copy[start - k][j] = new RGBAPixel(originalImage[i][j]);
                 }
             }
             start = start - amount;
@@ -102,7 +100,7 @@ public class Transform {
         for (int i = height / 2 - even; i < height; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
                 for (int k = 0; k < amount; k++) {
-                    copy[start + k][j] = new RGBAPixel(originalImage[i][j]);;
+                    copy[start + k][j] = new RGBAPixel(originalImage[i][j]);
                 }
             }
             start = start + amount;
@@ -122,7 +120,7 @@ public class Transform {
         int width = originalImage[0].length;
         for (int i = 0; i < originalImage.length; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
-                copy[width - i - 1][j] = new RGBAPixel(originalImage[i][j]);;
+                copy[width - i - 1][j] = new RGBAPixel(originalImage[i][j]);
             }
         }
         return copy;
@@ -137,7 +135,7 @@ public class Transform {
         int height = originalImage.length;
         for (int i = 0; i < originalImage.length; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
-                copy[i][height - j - 1] = new RGBAPixel(originalImage[i][j]);;
+                copy[i][height - j - 1] = new RGBAPixel(originalImage[i][j]);
             }
         }
         return copy;
@@ -342,7 +340,8 @@ public class Transform {
             squareW = originalImage[0].length;
             for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[(large - squareW) / 2 + squareW - 1 - j][k] = new RGBAPixel(originalImage[i][j]);
+                    copy[(large - squareW) / 2 + squareW - 1 - j][k]
+                            = new RGBAPixel(originalImage[i][j]);
                 }
                 k++;
             }
@@ -352,7 +351,8 @@ public class Transform {
             squareW = originalImage.length;
             for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[k][(large - squareW) / 2 + squareW - 1 - j] = new RGBAPixel(originalImage[i][j]);
+                    copy[k][(large - squareW) / 2 + squareW - 1 - j]
+                            = new RGBAPixel(originalImage[i][j]);
                 }
                 k--;
             }
@@ -373,7 +373,8 @@ public class Transform {
             squareW = originalImage[0].length;
             for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[(large - squareW) / 2 + squareW - 1 - j][k] = new RGBAPixel(originalImage[i][j]);
+                    copy[(large - squareW) / 2 + squareW - 1 - j][k]
+                            = new RGBAPixel(originalImage[i][j]);
                 }
                 k--;
             }
@@ -383,7 +384,8 @@ public class Transform {
             squareW = originalImage.length;
             for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[k][(large - squareW) / 2 + squareW - 1 - j] = new RGBAPixel(originalImage[i][j]);
+                    copy[k][(large - squareW) / 2 + squareW - 1 - j]
+                            = new RGBAPixel(originalImage[i][j]);
                 }
                 k++;
             }
