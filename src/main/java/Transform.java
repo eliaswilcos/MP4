@@ -338,18 +338,24 @@ public class Transform {
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
         int squareW;
         if (originalImage.length > originalImage[0].length) {
+            int k = 0;
+            int large = originalImage.length;
             squareW = originalImage[0].length;
-            for (int i = 0; i < originalImage.length; i++) {
+            for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[i][height - j - 1] = originalImage[i][j];
+                    copy[(large - squareW) / 2 + squareW - 1 - j][k] = originalImage[i][j];
                 }
+                k++;
             }
         } else {
+            int k = originalImage.length - 1;
+            int large = originalImage[0].length;
             squareW = originalImage.length;
-            for (int i = 0; i < originalImage.length; i++) {
+            for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
                 for (int j = 0; j < originalImage[i].length; j++) {
-                    copy[i][height - j - 1] = originalImage[i][j];
+                    copy[k][(large - squareW) / 2 + squareW - 1 - j] = originalImage[j][i];
                 }
+                k--;
             }
         }
         return copy;
@@ -360,6 +366,30 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] rotateRight(final RGBAPixel[][] originalImage) {
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        int squareW;
+        if (originalImage.length > originalImage[0].length) {
+            int k = originalImage.length - 1;
+            int large = originalImage.length;
+            squareW = originalImage[0].length;
+            for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[(large - squareW) / 2 + squareW - 1 - j][k] = originalImage[i][j];
+                }
+                k--;
+            }
+        } else {
+            int k = 0;
+            int large = originalImage[0].length;
+            squareW = originalImage.length;
+            for (int i = (large - squareW) / 2; i < (large - squareW) / 2 + squareW; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[k][(large - squareW) / 2 + squareW - 1 - j] = originalImage[j][i];
+                }
+                k++;
+            }
+        }
+        return copy;
     }
     /**
      * shift down.
