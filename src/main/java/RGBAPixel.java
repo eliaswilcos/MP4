@@ -31,7 +31,7 @@ public class RGBAPixel {
     private static final int BYTE_MASK = 0xFF;
 
     /** Maximum channel value. */
-    private static final int MAX_CHANNEL_VALUE = 255;
+    public static final int MAX_CHANNEL_VALUE = 255;
 
     /**
      * RGBAPixel value to use as filler when you don't have any valid data. All white with complete
