@@ -28,6 +28,9 @@ public class Transform {
      */
     public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage,
                                                  final int amount) {
+        if (amount == 0) {
+            return null;
+        }
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
         int width = originalImage[0].length;
         int start = width / 2;
@@ -37,6 +40,9 @@ public class Transform {
         for (int i = width / 2; i >= 0; i--) {
             for (int j = 0; j < originalImage.length; j++) {
                 for (int k = 0; k < amount; k++) {
+                    if (k > start) {
+                        break;
+                    }
                     copy[j][start - k] = new RGBAPixel(originalImage[i][j]);
                 }
             }
@@ -73,6 +79,9 @@ public class Transform {
      */
     public static RGBAPixel[][] expandVertical(final RGBAPixel[][] originalImage,
                                                final int amount) {
+        if (amount == 0) {
+            return null;
+        }
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
         int height = originalImage.length;
         int start = height / 2;
@@ -82,6 +91,9 @@ public class Transform {
         for (int i = height / 2; i >= 0; i--) {
             for (int j = 0; j < originalImage[i].length; j++) {
                 for (int k = 0; k < amount; k++) {
+                    if (k > start) {
+                        break;
+                    }
                     copy[start - k][j] = new RGBAPixel(originalImage[i][j]);
                 }
             }
@@ -399,7 +411,29 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftDown(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        if (amount >= originalImage[0].length) {
+            for (int i = 0; i < originalImage.length; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[i][j] = RGBAPixel.getFillValue();
+                }
+            }
+            return copy;
+        }
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length - amount; j++) {
+                copy[i][j + amount] = new RGBAPixel(originalImage[i][j]);
+            }
+        }
+        for (int i = 0; i < originalImage.length; i++) {
+            if (amount == 0) {
+                break;
+            }
+            for (int j = 0; j < amount; j++) {
+                copy[i][j] = RGBAPixel.getFillValue();
+            }
+        }
+        return copy;
     }
     /**
      * shift left.
@@ -408,7 +442,29 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        if (amount >= originalImage.length) {
+            for (int i = 0; i < originalImage.length; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[i][j] = RGBAPixel.getFillValue();
+                }
+            }
+            return copy;
+        }
+        for (int i = amount; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i - amount][j] = new RGBAPixel(originalImage[i][j]);
+            }
+        }
+        for (int i = originalImage.length - amount; i < originalImage.length; i++) {
+            if (amount == 0) {
+                break;
+            }
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = RGBAPixel.getFillValue();
+            }
+        }
+        return copy;
     }
     /**
      * shift right.
@@ -417,7 +473,29 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftRight(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        if (amount >= originalImage.length) {
+            for (int i = 0; i < originalImage.length; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[i][j] = RGBAPixel.getFillValue();
+                }
+            }
+            return copy;
+        }
+        for (int i = 0; i < originalImage.length - amount; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i + amount][j] = new RGBAPixel(originalImage[i][j]);
+            }
+        }
+        for (int i = 0; i < amount; i++) {
+            if (amount == 0) {
+                break;
+            }
+            for (int j = 0; j < originalImage[i].length; j++) {
+                copy[i][j] = RGBAPixel.getFillValue();
+            }
+        }
+        return copy;
     }
     /**
      * shift up.
@@ -426,7 +504,29 @@ public class Transform {
      * @return copy
      */
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
+        if (amount >= originalImage[0].length) {
+            for (int i = 0; i < originalImage.length; i++) {
+                for (int j = 0; j < originalImage[i].length; j++) {
+                    copy[i][j] = RGBAPixel.getFillValue();
+                }
+            }
+            return copy;
+        }
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = amount; j < originalImage[i].length; j++) {
+                copy[i][j - amount] = new RGBAPixel(originalImage[i][j]);
+            }
+        }
+        for (int i = 0; i < originalImage.length; i++) {
+            if (amount == 0) {
+                break;
+            }
+            for (int j = originalImage[i].length - amount; j < originalImage[i].length; j++) {
+                copy[i][j] = RGBAPixel.getFillValue();
+            }
+        }
+        return copy;
     }
     /**
      * shrink horizontal.
