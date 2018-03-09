@@ -434,9 +434,9 @@ public class Transform {
         } else {
             limit = originalImage.length;
             for (int i = 0; i < limit; i++) {
-                for (int j = (originalImage.length - limit) / 2;
-                     j < (originalImage.length - limit) / 2 + limit; j++) {
-                    copy[i][j] = new RGBAPixel(temp[i][j - (originalImage.length - limit) / 2]);
+                for (int j = (originalImage[0].length - limit) / 2;
+                     j < (originalImage[0].length - limit) / 2 + limit; j++) {
+                    copy[i][j] = new RGBAPixel(temp[i][j - (originalImage[0].length - limit) / 2]);
                 }
             }
         }
