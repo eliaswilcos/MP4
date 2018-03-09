@@ -142,10 +142,10 @@ public class Transform {
             return copy;
         } else if (originalImage.length == limit) {
             RGBAPixel[][] copy = new RGBAPixel[limit][limit];
-            for (int i = (originalImage.length - limit) / 2;
-                 i < (originalImage.length - limit) / 2 + limit; i++) {
+            for (int i = (originalImage[0].length - limit) / 2;
+                 i < (originalImage[0].length - limit) / 2 + limit; i++) {
                 for (int j = 0; j < limit; j++) {
-                    copy[i - (originalImage.length - limit) / 2][j] =
+                    copy[i - (originalImage[0].length - limit) / 2][j] =
                             new RGBAPixel(originalImage[j][i]);
                 }
             }
@@ -164,7 +164,7 @@ public class Transform {
      * @param originalImage original image
      * @return copy
      */
-    public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] flipVertical(final RGBAPixel[][] originalImage) {
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
         int height = originalImage[0].length;
         for (int i = 0; i < originalImage.length; i++) {
@@ -179,7 +179,7 @@ public class Transform {
      * @param originalImage original image
      * @return copy
      */
-    public static RGBAPixel[][] flipVertical(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
         RGBAPixel[][] copy = new RGBAPixel[originalImage.length][originalImage[0].length];
         int width = originalImage.length;
         for (int i = 0; i < originalImage.length; i++) {
@@ -400,13 +400,13 @@ public class Transform {
         } else {
             limit = originalImage.length;
             for (int i = 0; i < limit; i++) {
-                for (int j = (originalImage.length - limit) / 2;
-                     j < (originalImage.length - limit) / 2 + limit; j++) {
-                    copy[i][j] = new RGBAPixel(temp[i][j - (originalImage.length - limit) / 2]);
+                for (int j = (originalImage[0].length - limit) / 2;
+                     j < (originalImage[0].length - limit) / 2 + limit; j++) {
+                    copy[i][j] = new RGBAPixel(temp[i][j - (originalImage[0].length - limit) / 2]);
                 }
             }
         }
-        copy = flipHorizontal(copy);
+        copy = flipVertical(copy);
         return copy;
     }
     /**
@@ -440,7 +440,7 @@ public class Transform {
                 }
             }
         }
-        copy = flipVertical(copy);
+        copy = flipHorizontal(copy);
         return copy;
     }
     /**

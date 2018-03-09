@@ -124,16 +124,12 @@ public class TransformTest {
             RGBAPixel[][] actualOutput = null;
             if (input.rotateLeft) {
                 actualOutput = Transform.rotateLeft(inputArray);
-                System.out.println("left");
             } else if (input.rotateRight) {
                 actualOutput = Transform.rotateRight(inputArray);
-                System.out.println("right");
             } else if (input.flipVertical) {
                 actualOutput = Transform.flipVertical(inputArray);
-                System.out.println("vert");
             } else if (input.flipHorizontal) {
                 actualOutput = Transform.flipHorizontal(inputArray);
-                System.out.println("horiz");
             }
 
             Assert.assertTrue(Arrays.deepEquals(RGBAPixel.toIntArray(actualOutput),
