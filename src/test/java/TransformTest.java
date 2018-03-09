@@ -300,8 +300,10 @@ public class TransformTest {
             RGBAPixel[][] actualOutput = null;
             if (input.expandVertical > 0) {
                 actualOutput = Transform.expandVertical(inputArray, input.expandVertical);
+                System.out.println("vert");
             } else if (input.expandHorizontal > 0) {
                 actualOutput = Transform.expandHorizontal(inputArray, input.expandHorizontal);
+                System.out.println("hori");
             }
 
             Assert.assertTrue(Arrays.deepEquals(RGBAPixel.toIntArray(actualOutput),
